@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                QueryGetBooks query = new QueryGetBooks(_context);
+                QueryGetBooks query = new QueryGetBooks(_context, _mapper);
                 return Ok(query.Handle());
             }
             catch (System.Exception ex)
@@ -75,7 +75,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                QueryGetBookById query = new QueryGetBookById(_context, id);
+                QueryGetBookById query = new QueryGetBookById(_context, _mapper, id);
                 return Ok(query.Handle());
             }
             catch (System.Exception ex)

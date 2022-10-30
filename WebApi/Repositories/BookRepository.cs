@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
@@ -24,59 +23,6 @@ namespace WebApi.Repositories
                 };
                 context.Books.AddRange(Books);
                 context.SaveChanges();
-            }
-        }
-
-        public List<Book> GetBooks()
-        {
-            using (var context = new BookStoreDbContext())
-            {
-                var list = context.Books.Include(a => a.Author).ToList();
-                return list;
-            }
-        }
-
-        public bool AddBook(Book item)
-        {
-            using (var context = new BookStoreDbContext())
-            {
-                var alreadyAdded = context.Books.SingleOrDefault(s => s.Title == item.Title);
-                if (alreadyAdded is not null)
-                    return true;
-                context.Books.Add(item);
-                var isAdded = context.SaveChanges();
-                return isAdded > 0 ? true : false;
-            }
-        }
-
-        public bool RemoveBook(int itemId)
-        {
-            using (var context = new BookStoreDbContext())
-            {
-                var item = context.Books.SingleOrDefault(s => s.Id == itemId);
-                if (item is null)
-                    return true;
-                context.Books.Remove(item);
-                var isAdded = context.SaveChanges();
-                return isAdded > 0 ? true : false;
-            }
-        }
-
-        public Book UpdateBook(int itemId, Book updatedItem)
-        {
-            using (var context = new BookStoreDbContext())
-            {
-                var item = context.Books.SingleOrDefault(s => s.Id == itemId);
-                if (item is null)
-                    throw new ApplicationException("Book not available.");
-
-                item.Title = updatedItem.Title != default ? updatedItem.Title : item.Title;
-                item.GenreId = updatedItem.GenreId != default ? updatedItem.GenreId : item.GenreId;
-                item.PublishDate =
-                    updatedItem.PublishDate != default ? updatedItem.PublishDate : item.PublishDate;
-                item.PageCount =
-                    updatedItem.PageCount != default ? updatedItem.PageCount : item.PageCount;
-                return item;
             }
         }
     }
