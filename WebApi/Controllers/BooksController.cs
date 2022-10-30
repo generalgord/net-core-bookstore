@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Commands.BookOperations;
 using WebApi.DBOperations;
+using WebApi.Operations.BookOperations.Commands;
+using WebApi.Operations.BookOperations.Queries;
 using WebApi.Repositories;
 
 namespace WebApi.Controllers

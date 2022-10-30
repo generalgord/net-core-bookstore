@@ -1,7 +1,7 @@
 using WebApi.Common;
 using WebApi.DBOperations;
 
-namespace WebApi.Commands.BookOperations
+namespace WebApi.Operations.BookOperations.Queries
 {
     public class QueryGetBooks
     {

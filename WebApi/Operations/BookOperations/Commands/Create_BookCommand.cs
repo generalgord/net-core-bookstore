@@ -1,39 +1,39 @@
 using WebApi.DBOperations;
+using WebApi.Entities;
 
-namespace WebApi.Commands.BookOperations
+namespace WebApi.Operations.BookOperations.Commands
 {
-    public class UpdateBookCommand
+    public class CreateBookCommand
     {
-        public UpdateBookModel Model { get; set; }
-        public int ID { get; set; }
+        public CreateBookModel Model { get; set; }
         readonly BookStoreDbContext _dbContext;
 
-        public UpdateBookCommand(BookStoreDbContext dbContext, int itemId, UpdateBookModel model)
+        public CreateBookCommand(BookStoreDbContext dbContext, CreateBookModel model)
         {
             _dbContext = dbContext;
-            ID = itemId;
             Model = model;
         }
 
         public void Handle()
         {
-            var book = _dbContext.Books.SingleOrDefault(s => s.Id == ID);
-            if (book is null)
-                throw new AppException("Book not found");
+            var book = _dbContext.Books.SingleOrDefault(s => s.Title == Model.Title);
+            if (book is not null)
+                throw new AppException("Book already added");
 
+            book = new Book();
             book.Title = Model.Title;
             book.PublishDate = Model.PublishDate;
             book.GenreId = Model.GenreId;
             book.PageCount = Model.PageCount;
 
-            _dbContext.Books.Update(book);
+            _dbContext.Books.Add(book);
             var isAdded = _dbContext.SaveChanges();
             if (isAdded <= 0)
-                throw new AppException("An error occured while updating the book.");
+                throw new AppException("An error occured while adding the book.");
         }
     }
 
-    public class UpdateBookModel
+    public class CreateBookModel
     {
         public string Title { get; set; } = "";
         public int GenreId { get; set; }
