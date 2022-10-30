@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
 using WebApi.Operations.BookOperations.Commands;
@@ -12,11 +13,17 @@ namespace WebApi.Controllers
     {
         readonly IBookRepository _bookRepository;
         readonly BookStoreDbContext _context;
+        readonly IMapper _mapper;
 
-        public BooksController(IBookRepository bookRepository, BookStoreDbContext context)
+        public BooksController(
+            IBookRepository bookRepository,
+            BookStoreDbContext context,
+            IMapper mapper
+        )
         {
             _bookRepository = bookRepository;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -38,7 +45,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                CreateBookCommand command = new CreateBookCommand(_context, newBook);
+                CreateBookCommand command = new CreateBookCommand(_context, _mapper, newBook);
                 command.Handle();
                 return Ok();
             }
