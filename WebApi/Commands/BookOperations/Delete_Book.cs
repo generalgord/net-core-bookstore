@@ -1,4 +1,3 @@
-using WebApi.Common;
 using WebApi.DBOperations;
 
 namespace WebApi.Commands.BookOperations
