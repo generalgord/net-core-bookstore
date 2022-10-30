@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WebApi.Models;
+using WebApi.Entities;
 
 namespace WebApi.DBOperations
 {

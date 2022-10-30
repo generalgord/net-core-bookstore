@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApi.Models
+namespace WebApi.Entities
 {
     public class Student
     {

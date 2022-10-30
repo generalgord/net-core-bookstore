@@ -1,6 +1,6 @@
 using WebApi.Common;
 using WebApi.DBOperations;
-using WebApi.Models;
+using WebApi.Entities;
 
 namespace WebApi.Commands.BookOperations
 {
