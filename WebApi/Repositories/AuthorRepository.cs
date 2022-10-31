@@ -8,6 +8,11 @@ namespace WebApi.Repositories
     {
         public AuthorRepository()
         {
+            Initialize();
+        }
+
+        public static void Initialize()
+        {
             using (var context = new BookStoreDbContext())
             {
                 if (context.Authors.Any())

@@ -5,17 +5,18 @@ using WebApi.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddSingleton<IAuthorRepository, AuthorRepository>();
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
 // DB Contexts
 builder.Services.AddDbContext<BookStoreDbContext>();
 
+// Add DB initializer
+builder.Services.AddRepoServices();
+
 builder.Services
     .AddControllers()
-    // .AddControllers(options => options.Filters.Add<ApiExceptionFilterAttribute>())
     .AddNewtonsoftJson(
         options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
 using WebApi.DBOperations;
 
@@ -17,7 +18,7 @@ namespace WebApi.Operations.BookOperations.Queries
 
         public List<BooksViewModel> Handle()
         {
-            var bookList = _dbContext.Books.OrderBy(o => o.Id).ToList();
+            var bookList = _dbContext.Books.Include(i => i.Genre).OrderBy(o => o.Id).ToList();
             var vm = _mapper.Map<List<BooksViewModel>>(bookList);
             return vm;
         }

@@ -1,5 +1,4 @@
 using FluentValidation;
-using WebApi.DBOperations;
 
 namespace WebApi.Operations.BookOperations.Commands
 {

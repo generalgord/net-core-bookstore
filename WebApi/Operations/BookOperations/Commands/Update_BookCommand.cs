@@ -21,6 +21,11 @@ namespace WebApi.Operations.BookOperations.Commands
             if (book is null)
                 throw new AppException("Book not found");
 
+            if (_dbContext.Books.Any(a => a.Title.ToLower() == Model.Title.ToLower() && a.Id != ID))
+                throw new AppException(
+                    "Same name of Book is available. Please try another book title."
+                );
+
             book.Title = Model.Title;
             book.PublishDate = Model.PublishDate;
             book.GenreId = Model.GenreId;

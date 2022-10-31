@@ -1,0 +1,26 @@
+using WebApi.DBOperations;
+
+namespace WebApi.Operations.GenreOperations.Commands
+{
+    public class DeleteGenreCommand
+    {
+        public int ID { get; set; }
+        readonly BookStoreDbContext _dbContext;
+
+        public DeleteGenreCommand(BookStoreDbContext dbContext, int itemId)
+        {
+            _dbContext = dbContext;
+            ID = itemId;
+        }
+
+        public void Handle()
+        {
+            var genre = _dbContext.Genres.SingleOrDefault(s => s.Id == ID);
+            if (genre is null)
+                throw new AppException("Genre not found");
+
+            _dbContext.Remove(genre);
+            _dbContext.SaveChanges();
+        }
+    }
+}
