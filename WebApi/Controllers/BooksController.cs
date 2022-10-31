@@ -45,19 +45,19 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
-            try
-            {
-                CreateBookCommand command = new CreateBookCommand(_context, _mapper, newBook);
+            // try
+            // {
+            CreateBookCommand command = new CreateBookCommand(_context, _mapper, newBook);
 
-                var validator = new CreateBookCommandValidator();
-                validator.ValidateAndThrow(command);
-                command.Handle();
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var validator = new CreateBookCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle();
+            return Ok();
+            // }
+            // catch (System.Exception ex)
+            // {
+            //     return BadRequest(ex.Message);
+            // }
         }
 
         [HttpPut("{id}")]
