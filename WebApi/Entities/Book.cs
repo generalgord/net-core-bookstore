@@ -7,10 +7,13 @@ namespace WebApi.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Title { get; set; } = "";
-        public int GenreId { get; set; }
-        public Genre Genre { get; set; } = null!;
         public int PageCount { get; set; }
         public DateTime PublishDate { get; set; }
-        public Author Author { get; set; } = null!;
+        public bool IsPublished { get; set; } = true;
+
+        public int GenreId { get; set; }
+        public Genre Genre { get; set; } = null!;
+
+        public ICollection<BookAuthor> BookAuthors { get; set; } = null!;
     }
 }

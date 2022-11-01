@@ -14,20 +14,9 @@ namespace WebApi.Repositories
                 if (context.Genres.Any())
                     return;
 
-                var genres = new List<Genre>
-                {
-                    new Genre { Name = "Personal Growth" },
-                    new Genre { Name = "Science Fiction" },
-                    new Genre { Name = "Noval" },
-                    new Genre { Name = "Romance" },
-                    new Genre { Name = "Detective" },
-                    new Genre { Name = "Classics" },
-                    new Genre { Name = "Adventure" },
-                    new Genre { Name = "Science" },
-                    new Genre { Name = "Family" },
-                };
-                context.Genres.AddRange(genres);
-                context.SaveChanges();
+                context.Genres.AddRange(SampleRepos.Genres);
+                var added = context.SaveChanges();
+                Console.WriteLine($"Added {added} Genres to DB");
             }
         }
     }

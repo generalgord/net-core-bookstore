@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
 using WebApi.Operations.GenreOperations.Commands;
 using WebApi.Operations.GenreOperations.Queries;
-using WebApi.Repositories;
 
 namespace WebApi.Controllers
 {

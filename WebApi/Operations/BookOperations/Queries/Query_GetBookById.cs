@@ -20,20 +20,54 @@ namespace WebApi.Operations.BookOperations.Queries
 
         public BookDetailViewModel Handle()
         {
-            var book = _dbContext.Books.Include(i => i.Genre).SingleOrDefault(s => s.Id == ID);
+            var book = (
+                from b in _dbContext.Books.Where(w => w.IsPublished && w.Id == ID)
+                join ba in _dbContext.BookAuthors on b.Id equals ba.BookId into baGroup
+                select new BookDetailViewModel
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    PageCount = b.PageCount,
+                    PublishDate = b.PublishDate.Date.ToString("dd/MM/yyyy"),
+                    Genre =
+                        _dbContext.Genres
+                            .Where(f => f.Id == b.GenreId && f.IsActive)
+                            .Select(s => s.Name)
+                            .FirstOrDefault() ?? "",
+                    Authors = _dbContext.Authors
+                        .Where(w => baGroup.Select(s => s.AuthorId).ToArray().Contains(w.Id))
+                        .Select(
+                            sm =>
+                                new BookAuthorsViewModel
+                                {
+                                    AuthorName = sm.FirstName + ' ' + sm.LastName,
+                                    DateOfBirth = sm.DateOfBirth.Date.ToString("dd/MM/yyyy")
+                                }
+                        )
+                        .ToList()
+                }
+            ).SingleOrDefault();
+
             if (book is null)
                 throw new AppException("Book not found");
 
-            var vm = _mapper.Map<Book, BookDetailViewModel>(book);
-            return vm;
+            return book;
         }
     }
 
     public class BookDetailViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; } = "";
         public string Genre { get; set; } = "";
         public int PageCount { get; set; }
         public string PublishDate { get; set; } = "";
+        public List<BookAuthorsViewModel> Authors { get; set; } = null!;
+    }
+
+    public class BookAuthorsViewModel
+    {
+        public string AuthorName { get; set; } = "";
+        public string DateOfBirth { get; set; } = "";
     }
 }

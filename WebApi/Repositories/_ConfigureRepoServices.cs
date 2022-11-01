@@ -8,5 +8,9 @@ public static class ConfigureRepoServices
     {
         GenreRepository.Initialize();
         BookRepository.Initialize();
+        AuthorRepository.Initialize();
+        BookAuthorRepository.Initialize();
+
+        Console.WriteLine("DB Initialize Complted.");
     }
 }

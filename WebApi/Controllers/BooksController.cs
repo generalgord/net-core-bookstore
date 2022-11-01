@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
 using WebApi.Operations.BookOperations.Commands;
 using WebApi.Operations.BookOperations.Queries;
-using WebApi.Repositories;
 
 namespace WebApi.Controllers
 {
@@ -45,7 +44,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, [FromBody] UpdateBookModel updatedBook)
         {
-            UpdateBookCommand command = new UpdateBookCommand(_context, id, updatedBook);
+            UpdateBookCommand command = new UpdateBookCommand(_context, _mapper, id, updatedBook);
             var validator = new UpdateBookCommandValidator();
             validator.ValidateAndThrow(command);
             command.Handle();

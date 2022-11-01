@@ -18,33 +18,9 @@ namespace WebApi.Repositories
                 if (context.Authors.Any())
                     return;
 
-                var authors = new List<Author>
-                {
-                    new Author
-                    {
-                        FirstName = "Joydip",
-                        LastName = "Kanjilal",
-                        Books = new List<Book>()
-                        {
-                            new Book { Title = "Mastering C# 8.0" },
-                            new Book { Title = "Entity Framework Tutorial" },
-                            new Book { Title = "ASP.NET 4.0 Programming" }
-                        }
-                    },
-                    new Author
-                    {
-                        FirstName = "Yashavanth",
-                        LastName = "Kanetkar",
-                        Books = new List<Book>()
-                        {
-                            new Book { Title = "Let us C" },
-                            new Book { Title = "Let us C++" },
-                            new Book { Title = "Let us C#" }
-                        }
-                    }
-                };
-                context.Authors.AddRange(authors);
-                context.SaveChanges();
+                context.Authors.AddRange(SampleRepos.Authors);
+                var added = context.SaveChanges();
+                Console.WriteLine($"Added {added} Authors to DB");
             }
         }
 
@@ -52,7 +28,7 @@ namespace WebApi.Repositories
         {
             using (var context = new BookStoreDbContext())
             {
-                var list = context.Authors.Include(a => a.Books).ToList();
+                var list = context.Authors.Include(a => a.BookAuthors).ToList();
                 return list;
             }
         }
