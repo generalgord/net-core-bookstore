@@ -1,7 +1,7 @@
 using WebApi.Operations.BookOperations.Update.Commands;
 using WebApi.UnitTests.TestSetup;
 
-namespace WebApi.UnitTests.Operations.BookOperations.Update
+namespace WebApi.UnitTests.Operations.BookOperations.Commands.Update
 {
     public class AddAuthorToBookModelValidatorTests : IClassFixture<CommonTestFixture>
     {

@@ -4,7 +4,7 @@ using WebApi.Entities;
 using WebApi.Operations.BookOperations.Create.Commands;
 using WebApi.UnitTests.TestSetup;
 
-namespace WebApi.UnitTests.Operations.BookOperations.Create
+namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
 {
     public class CreateBookCommandTests : IClassFixture<CommonTestFixture>
     {

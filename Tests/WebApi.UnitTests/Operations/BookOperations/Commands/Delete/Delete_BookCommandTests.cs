@@ -3,7 +3,7 @@ using WebApi.Entities;
 using WebApi.Operations.BookOperations.Delete.Commands;
 using WebApi.UnitTests.TestSetup;
 
-namespace WebApi.UnitTests.Operations.BookOperations.Delete
+namespace WebApi.UnitTests.Operations.BookOperations.Commands.Delete
 {
     public class DeleteBookCommandTests : IClassFixture<CommonTestFixture>
     {
