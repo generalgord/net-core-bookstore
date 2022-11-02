@@ -1,11 +1,10 @@
 using AutoMapper;
-using FluentAssertions;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using WebApi.Operations.BookOperations.Create.Commands;
 using WebApi.UnitTests.TestSetup;
 
-namespace WebApi.UnitTests.Operations.AuthorOperations.Create
+namespace WebApi.UnitTests.Operations.BookOperations.Create
 {
     public class CreateBookCommandTests : IClassFixture<CommonTestFixture>
     {
@@ -19,11 +18,11 @@ namespace WebApi.UnitTests.Operations.AuthorOperations.Create
         }
 
         [Fact]
-        public void WhenAlreadyExistBookTitleIsGiven_InvalidOperationException_ShouldBeReturn()
+        public void WhenAlreadyExistBookTitleIsGiven_AppException_ShouldBeReturn()
         {
             var book = new Book()
             {
-                Title = "WhenAlreadyExistBookTitleIsGiven_InvalidOperationException_ShouldBeReturn",
+                Title = "WhenAlreadyExistBookTitleIsGiven_AppException_ShouldBeReturn",
                 PageCount = 500,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,
