@@ -5,9 +5,9 @@ namespace WebApi.Operations.GenreOperations.Delete.Commands
     public class DeleteGenreCommand
     {
         public int ID { get; set; }
-        readonly BookStoreDbContext _dbContext;
+        readonly IBookStoreDbContext _dbContext;
 
-        public DeleteGenreCommand(BookStoreDbContext dbContext, int itemId)
+        public DeleteGenreCommand(IBookStoreDbContext dbContext, int itemId)
         {
             _dbContext = dbContext;
             ID = itemId;

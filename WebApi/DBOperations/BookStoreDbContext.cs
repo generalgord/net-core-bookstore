@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using WebApi.Entities;
 
 namespace WebApi.DBOperations
 {
-    public partial class BookStoreDbContext : DbContext
+    public partial class BookStoreDbContext : DbContext, IBookStoreDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,6 +35,21 @@ namespace WebApi.DBOperations
                 .HasOne(ba => ba.Author)
                 .WithMany(b => b.BookAuthors)
                 .HasForeignKey(ba => ba.AuthorId);
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
+
+        public override EntityEntry Remove(object entity)
+        {
+            return base.Remove(entity);
+        }
+
+        public override void RemoveRange(params object[] entities)
+        {
+            base.RemoveRange(entities);
         }
     }
 }

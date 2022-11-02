@@ -7,11 +7,11 @@ namespace WebApi.Operations.BookOperations.Create.Commands
     public class CreateBookCommand
     {
         public CreateBookModel Model { get; set; }
-        private readonly BookStoreDbContext _dbContext;
+        private readonly IBookStoreDbContext _dbContext;
         private readonly IMapper _mapper;
 
         public CreateBookCommand(
-            BookStoreDbContext dbContext,
+            IBookStoreDbContext dbContext,
             IMapper mapper,
             CreateBookModel model
         )

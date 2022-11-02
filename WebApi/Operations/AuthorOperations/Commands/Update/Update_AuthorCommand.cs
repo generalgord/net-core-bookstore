@@ -9,10 +9,10 @@ namespace WebApi.Operations.AuthorOperations.Update.Commands
         public UpdateAuthorModel Model { get; set; }
         private readonly IMapper _mapper;
         public int ID { get; set; }
-        readonly BookStoreDbContext _dbContext;
+        readonly IBookStoreDbContext _dbContext;
 
         public UpdateAuthorCommand(
-            BookStoreDbContext dbContext,
+            IBookStoreDbContext dbContext,
             IMapper mapper,
             int itemId,
             UpdateAuthorModel model

@@ -13,10 +13,10 @@ namespace WebApi.Controllers
     [Route("[controller]")]
     public class AuthorsController : ControllerBase
     {
-        readonly BookStoreDbContext _context;
+        readonly IBookStoreDbContext _context;
         readonly IMapper _mapper;
 
-        public AuthorsController(BookStoreDbContext context, IMapper mapper)
+        public AuthorsController(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

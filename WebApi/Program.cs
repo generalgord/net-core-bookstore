@@ -9,6 +9,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
 // DB Contexts
 builder.Services.AddDbContext<BookStoreDbContext>();
+builder.Services.AddScoped<IBookStoreDbContext, BookStoreDbContext>();
 
 // Add DB initializer
 builder.Services.AddRepoServices();
