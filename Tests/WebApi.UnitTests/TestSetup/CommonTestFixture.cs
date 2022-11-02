@@ -15,6 +15,7 @@ namespace WebApi.UnitTests.TestSetup
             var options = new DbContextOptionsBuilder<BookStoreDbContext>()
                 .UseInMemoryDatabase(databaseName: "BookStoreTestDb")
                 .Options;
+            Context = new BookStoreDbContext(options);
             Context.Database.EnsureCreated();
 
             Context.AddMockGenres();

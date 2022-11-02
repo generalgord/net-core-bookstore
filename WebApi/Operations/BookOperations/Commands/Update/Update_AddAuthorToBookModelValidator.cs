@@ -6,12 +6,8 @@ namespace WebApi.Operations.BookOperations.Update.Commands
     {
         public AddAuthorToBookModelValidator()
         {
-            RuleFor(cmd => cmd.FirstName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.FirstName));
-            RuleFor(cmd => cmd.LastName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.FirstName));
+            RuleFor(cmd => cmd.FirstName).NotEmpty().MinimumLength(2);
+            RuleFor(cmd => cmd.LastName).NotEmpty().MinimumLength(2);
             RuleFor(cmd => cmd.DateOfBirth).NotEmpty();
         }
     }

@@ -7,12 +7,8 @@ namespace WebApi.Operations.AuthorOperations.Update.Commands
         public UpdateAuthorCommandValidator()
         {
             RuleFor(cmd => cmd.ID).GreaterThan(0);
-            RuleFor(cmd => cmd.Model.FirstName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.Model.FirstName));
-            RuleFor(cmd => cmd.Model.LastName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.Model.FirstName));
+            RuleFor(cmd => cmd.Model.FirstName).NotEmpty().MinimumLength(2);
+            RuleFor(cmd => cmd.Model.LastName).NotEmpty().MinimumLength(2);
             RuleFor(cmd => cmd.Model.DateOfBirth).NotEmpty();
             RuleForEach(cmd => cmd.Model.Books)
                 .Where(w => w != null)

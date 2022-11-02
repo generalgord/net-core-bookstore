@@ -6,6 +6,10 @@ namespace WebApi.DBOperations
 {
     public partial class BookStoreDbContext : DbContext, IBookStoreDbContext
     {
+        public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options) : base(options) { }
+
+        public BookStoreDbContext() { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase(databaseName: "BookStoreDb");

@@ -6,12 +6,8 @@ namespace WebApi.Operations.AuthorOperations.Create.Commands
     {
         public CreateAuthorCommandValidator()
         {
-            RuleFor(cmd => cmd.Model.FirstName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.Model.FirstName));
-            RuleFor(cmd => cmd.Model.LastName)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.Model.FirstName));
+            RuleFor(cmd => cmd.Model.FirstName).NotEmpty().MinimumLength(2);
+            RuleFor(cmd => cmd.Model.LastName).NotEmpty().MinimumLength(2);
             RuleFor(cmd => cmd.Model.DateOfBirth).NotEmpty();
         }
     }

@@ -9,7 +9,7 @@ namespace WebApi.Operations.AuthorOperations.Update.Commands
             RuleFor(cmd => cmd.GenreId).GreaterThan(0);
             RuleFor(cmd => cmd.PageCount).GreaterThan(0);
             RuleFor(cmd => cmd.PublishDate).NotEmpty();
-            RuleFor(cmd => cmd.Title).MinimumLength(4).When(w => !string.IsNullOrEmpty(w.Title));
+            RuleFor(cmd => cmd.Title).NotEmpty().MinimumLength(4);
         }
     }
 }

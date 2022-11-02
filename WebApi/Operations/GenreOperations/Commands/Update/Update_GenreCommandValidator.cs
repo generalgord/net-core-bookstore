@@ -7,9 +7,7 @@ namespace WebApi.Operations.GenreOperations.Update.Commands
         public UpdateGenreCommandValidator()
         {
             RuleFor(cmd => cmd.ID).GreaterThan(0);
-            RuleFor(cmd => cmd.Model.Name)
-                .MinimumLength(2)
-                .When(w => !string.IsNullOrEmpty(w.Model.Name));
+            RuleFor(cmd => cmd.Model.Name).NotEmpty().MinimumLength(2);
         }
     }
 }
