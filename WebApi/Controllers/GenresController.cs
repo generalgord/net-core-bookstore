@@ -2,8 +2,10 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
-using WebApi.Operations.GenreOperations.Commands;
+using WebApi.Operations.GenreOperations.Create.Commands;
+using WebApi.Operations.GenreOperations.Delete.Commands;
 using WebApi.Operations.GenreOperations.Queries;
+using WebApi.Operations.GenreOperations.Update.Commands;
 
 namespace WebApi.Controllers
 {

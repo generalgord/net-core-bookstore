@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Operations.AuthorOperations.Commands
+namespace WebApi.Operations.AuthorOperations.Create.Commands
 {
     public class CreateAuthorCommandValidator : AbstractValidator<CreateAuthorCommand>
     {

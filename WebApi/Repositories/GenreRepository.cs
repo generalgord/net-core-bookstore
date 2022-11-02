@@ -1,5 +1,5 @@
 using WebApi.DBOperations;
-using WebApi.Entities;
+using WebApi.Repositories.Initialize;
 
 namespace WebApi.Repositories
 {

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Operations.BookOperations.Commands
+namespace WebApi.Operations.BookOperations.Update.Commands
 {
     public class AddAuthorToBookModelValidator : AbstractValidator<AddAuthorToBookModel>
     {

@@ -2,7 +2,7 @@ using AutoMapper;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Operations.AuthorOperations.Commands
+namespace WebApi.Operations.AuthorOperations.Create.Commands
 {
     public class CreateAuthorCommand
     {

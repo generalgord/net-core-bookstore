@@ -1,11 +1,9 @@
 using FluentValidation;
 using WebApi.DBOperations;
-using WebApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<IAuthorRepository, AuthorRepository>();
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 

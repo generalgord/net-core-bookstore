@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Operations.GenreOperations.Commands
+namespace WebApi.Operations.GenreOperations.Update.Commands
 {
     public class UpdateGenreCommandValidator : AbstractValidator<UpdateGenreCommand>
     {

@@ -1,6 +1,6 @@
 using WebApi.Entities;
 
-namespace WebApi.Repositories
+namespace WebApi.Repositories.Initialize
 {
     public static class SampleRepos
     {

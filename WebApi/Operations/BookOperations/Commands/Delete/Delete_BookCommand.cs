@@ -1,6 +1,6 @@
 using WebApi.DBOperations;
 
-namespace WebApi.Operations.BookOperations.Commands
+namespace WebApi.Operations.BookOperations.Delete.Commands
 {
     public class DeleteBookCommand
     {

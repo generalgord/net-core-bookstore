@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Operations.AuthorOperations.Commands
+namespace WebApi.Operations.AuthorOperations.Delete.Commands
 {
     public class DeleteAuthorCommandValidator : AbstractValidator<DeleteAuthorCommand>
     {

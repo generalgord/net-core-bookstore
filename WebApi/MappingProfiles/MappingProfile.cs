@@ -1,11 +1,14 @@
 using AutoMapper;
 using WebApi.Entities;
-using WebApi.Operations.AuthorOperations.Commands;
+using WebApi.Operations.AuthorOperations.Create.Commands;
 using WebApi.Operations.AuthorOperations.Queries;
-using WebApi.Operations.BookOperations.Commands;
+using WebApi.Operations.AuthorOperations.Update.Commands;
+using WebApi.Operations.BookOperations.Create.Commands;
 using WebApi.Operations.BookOperations.Queries;
-using WebApi.Operations.GenreOperations.Commands;
+using WebApi.Operations.BookOperations.Update.Commands;
+using WebApi.Operations.GenreOperations.Create.Commands;
 using WebApi.Operations.GenreOperations.Queries;
+using WebApi.Operations.GenreOperations.Update.Commands;
 
 namespace WebApi.MappingProfiles
 {
