@@ -15,3 +15,7 @@
 WebApi/bin
 WebApi/obj
 appsettings*.json
+
+# Global Defaults
+bin/
+obj/
