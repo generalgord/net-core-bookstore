@@ -47,7 +47,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
         {
             CreateBookModel model = new CreateBookModel()
             {
-                Title = "Adventure of Mario Brothers",
+                Title = "Adventure of Mario",
                 PageCount = 50,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 2,
