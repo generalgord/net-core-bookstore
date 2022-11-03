@@ -1,9 +1,30 @@
+using System.Text;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using WebApi.DBOperations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opt =>
+    {
+        opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            ValidateAudience = true,
+            ValidateIssuer = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Token:Issuer"],
+            ValidAudience = builder.Configuration["Token:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])
+            ),
+            ClockSkew = TimeSpan.Zero
+        };
+    });
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
@@ -38,6 +59,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseHttpsRedirection();
 
