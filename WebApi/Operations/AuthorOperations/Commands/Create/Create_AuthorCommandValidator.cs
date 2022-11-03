@@ -8,7 +8,7 @@ namespace WebApi.Operations.AuthorOperations.Create.Commands
         {
             RuleFor(cmd => cmd.Model.FirstName).NotEmpty().MinimumLength(2);
             RuleFor(cmd => cmd.Model.LastName).NotEmpty().MinimumLength(2);
-            RuleFor(cmd => cmd.Model.DateOfBirth).NotEmpty();
+            RuleFor(cmd => cmd.Model.DateOfBirth).NotEmpty().LessThan(DateTime.Now.AddYears(-15));
         }
     }
 }

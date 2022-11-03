@@ -19,12 +19,12 @@ namespace WebApi.UnitTests.Operations.GenreOperations.Queries
         [Fact]
         public void WhenCalled_Genres_ShouldBeReturn()
         {
-            var bookList = new List<Genre>
+            var genreList = new List<Genre>
             {
-                new Genre() { Name = "WhenCalled_Genres_ShouldBeReturn Gnre Name 11", },
-                new Genre() { Name = "WhenCalled_Genres_ShouldBeReturn Gnre Name 22", }
+                new Genre() { Name = "WhenCalled 1131", },
+                new Genre() { Name = "Genre_ShouldBeReturn 2122", }
             };
-            _context.Genres.AddRange(bookList);
+            _context.Genres.AddRange(genreList);
             _context.SaveChanges();
 
             QueryGetGenres query = new QueryGetGenres(_context, _mapper);

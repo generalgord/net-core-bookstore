@@ -36,7 +36,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Queries
         {
             var book = new Book()
             {
-                Title = "WhenBookIdIsValidGiven_Book_ShouldBeReturn 1",
+                Title = "WhenBookIdIs ValidGiven _Book_ShouldB eReturn 1",
                 PageCount = 500,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,

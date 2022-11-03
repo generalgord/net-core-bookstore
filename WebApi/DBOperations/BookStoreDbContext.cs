@@ -27,18 +27,21 @@ namespace WebApi.DBOperations
             // Ve tabiki bir yazarın birden fazla kitabı olabilir
             // şeklinde kurgulanmıştır.
             modelBuilder.Entity<BookAuthor>().HasKey(ba => new { ba.BookId, ba.AuthorId });
-            // Kitap için
-            modelBuilder
-                .Entity<BookAuthor>()
-                .HasOne(ba => ba.Book)
-                .WithMany(b => b.BookAuthors)
-                .HasForeignKey(ba => ba.BookId);
-            // Yazar için
-            modelBuilder
-                .Entity<BookAuthor>()
-                .HasOne(ba => ba.Author)
-                .WithMany(b => b.BookAuthors)
-                .HasForeignKey(ba => ba.AuthorId);
+
+            //// In the below code; For different key namings (e.g. BId, AId)
+            //// Otherwise above code is sufficent.
+            // // For Book
+            // modelBuilder
+            //     .Entity<BookAuthor>()
+            //     .HasOne(ba => ba.Book)
+            //     .WithMany(b => b.BookAuthors)
+            //     .HasForeignKey(ba => ba.BId);
+            // //For Author
+            // modelBuilder
+            //     .Entity<BookAuthor>()
+            //     .HasOne(ba => ba.Author)
+            //     .WithMany(b => b.BookAuthors)
+            //     .HasForeignKey(ba => ba.AId);
         }
 
         public override int SaveChanges()

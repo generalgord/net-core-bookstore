@@ -40,10 +40,10 @@ namespace WebApi.UnitTests.TestSetup
                 bookAuthors.Add(
                     new BookAuthor
                     {
-                        // Book = _book,
-                        // Author = authors.ElementAt(new Random().Next(authors.Count()))
-                        BookId = _book.Id,
-                        AuthorId = authors.ElementAt(new Random().Next(authors.Count())).Id
+                        Book = _book,
+                        Author = authors.ElementAt(new Random().Next(authors.Count()))
+                        // BookId = _book.Id,
+                        // AuthorId = authors.ElementAt(new Random().Next(authors.Count())).Id
                     }
                 );
             }

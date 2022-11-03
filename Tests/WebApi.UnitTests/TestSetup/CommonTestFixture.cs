@@ -21,7 +21,7 @@ namespace WebApi.UnitTests.TestSetup
             Context.AddMockGenres();
             Context.AddMockBooks();
             Context.AddMockAuthors();
-            Context.AddMockBookAuthors();
+            // Context.AddMockBookAuthors();
             try
             {
                 Context.SaveChanges();

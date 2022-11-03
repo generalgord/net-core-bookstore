@@ -67,7 +67,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Update
         {
             var book = new Book()
             {
-                Title = "When Already Exist Book Title 2",
+                Title = "When Already AS Exist Book Title 2",
                 PageCount = 500,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,
@@ -100,7 +100,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Update
 
             UpdateBookModel model = new UpdateBookModel()
             {
-                Title = "Adventure of Mario Brothers",
+                Title = "Adventure of Mario Brothers 212",
                 PageCount = 50,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 2,

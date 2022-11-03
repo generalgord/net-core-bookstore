@@ -14,6 +14,6 @@ namespace WebApi.Entities
         public int GenreId { get; set; }
         public Genre Genre { get; set; } = null!;
 
-        public ICollection<BookAuthor> BookAuthors { get; set; } = null!;
+        public IList<BookAuthor> BookAuthors { get; set; } = null!;
     }
 }

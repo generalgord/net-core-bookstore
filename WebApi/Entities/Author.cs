@@ -10,6 +10,6 @@ namespace WebApi.Entities
         public string LastName { get; set; } = "";
         public DateTime DateOfBirth { get; set; }
 
-        public ICollection<BookAuthor> BookAuthors { get; set; } = null!;
+        public IList<BookAuthor> BookAuthors { get; set; } = null!;
     }
 }
