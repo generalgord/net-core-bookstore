@@ -2,7 +2,6 @@ using AutoMapper;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using WebApi.Operations.GenreOperations.Queries;
-using WebApi.UnitTests.TestSetup;
 
 namespace WebApi.UnitTests.Operations.GenreOperations.Queries
 {
