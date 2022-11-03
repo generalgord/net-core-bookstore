@@ -3,6 +3,7 @@ using AutoMapper;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using WebApi.Operations.BookOperations.Queries;
+using WebApi.UnitTests.TestSetup;
 
 namespace WebApi.UnitTests.Operations.BookOperations.Queries
 {

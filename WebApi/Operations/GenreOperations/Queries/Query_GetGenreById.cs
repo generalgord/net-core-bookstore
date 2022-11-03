@@ -19,17 +19,18 @@ namespace WebApi.Operations.GenreOperations.Queries
 
         public GenreDetailViewModel Handle()
         {
-            var book = _dbContext.Genres.SingleOrDefault(s => s.IsActive && s.Id == ID);
-            if (book is null)
+            var genre = _dbContext.Genres.SingleOrDefault(s => s.IsActive && s.Id == ID);
+            if (genre is null)
                 throw new AppException("Genre not found or not active");
 
-            var vm = _mapper.Map<Genre, GenreDetailViewModel>(book);
+            var vm = _mapper.Map<Genre, GenreDetailViewModel>(genre);
             return vm;
         }
     }
 
     public class GenreDetailViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; } = "";
     }
 }

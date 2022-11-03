@@ -22,7 +22,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
         {
             var book = new Book()
             {
-                Title = "WhenAlreadyExistBookTitleIsGiven_AppException_ShouldBeReturn",
+                Title = "WhenAlreadyExistBookTitleIsGiven_AppException_ShouldBeReturn 1",
                 PageCount = 500,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,
@@ -47,7 +47,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
         {
             CreateBookModel model = new CreateBookModel()
             {
-                Title = "Adventure of Mario",
+                Title = "Adventure of Mario 11",
                 PageCount = 50,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 2,
