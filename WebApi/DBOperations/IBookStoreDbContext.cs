@@ -7,6 +7,7 @@ namespace WebApi.DBOperations
     public interface IBookStoreDbContext
     {
         // Entities
+        DbSet<User> Users { get; set; }
         DbSet<Author> Authors { get; set; }
         DbSet<Book> Books { get; set; }
         DbSet<BookAuthor> BookAuthors { get; set; }

@@ -9,6 +9,7 @@ using WebApi.Operations.BookOperations.Update.Commands;
 using WebApi.Operations.GenreOperations.Create.Commands;
 using WebApi.Operations.GenreOperations.Queries;
 using WebApi.Operations.GenreOperations.Update.Commands;
+using WebApi.Operations.UserOperations.Create.Commands;
 
 namespace WebApi.MappingProfiles
 {
@@ -16,6 +17,10 @@ namespace WebApi.MappingProfiles
     {
         public MappingProfile()
         {
+            // User mapping
+            CreateMap<CreateUserModel, User>();
+            CreateMap<CreateTokenModel, User>();
+
             // Book Mapping
             CreateMap<CreateBookModel, Book>();
             CreateMap<UpdateBookModel, Book>();
