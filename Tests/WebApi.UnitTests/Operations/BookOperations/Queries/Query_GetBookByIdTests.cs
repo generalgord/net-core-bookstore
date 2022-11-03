@@ -21,17 +21,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Queries
         [Fact]
         public void WhenBookIdIsWrongGiven_AppException_ShouldBeReturn()
         {
-            var book = new Book()
-            {
-                Title = "WhenBookIdIsWrong_AppException_ShouldBeReturn 1",
-                PageCount = 500,
-                PublishDate = new DateTime(2000, 10, 10),
-                GenreId = 1,
-            };
-            _context.Books.Add(book);
-            _context.SaveChanges();
-
-            var itemId = book.Id + 5;
+            var itemId = -1;
 
             QueryGetBookById query = new QueryGetBookById(_context, _mapper, itemId);
             FluentActions

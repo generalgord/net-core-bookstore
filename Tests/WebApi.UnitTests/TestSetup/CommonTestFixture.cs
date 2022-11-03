@@ -22,7 +22,14 @@ namespace WebApi.UnitTests.TestSetup
             Context.AddMockBooks();
             Context.AddMockAuthors();
             Context.AddMockBookAuthors();
-            Context.SaveChanges();
+            try
+            {
+                Context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Context Initialize Error: " + ex.Message);
+            }
 
             Mapper = new MapperConfiguration(config =>
             {

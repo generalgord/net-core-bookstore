@@ -7,16 +7,16 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
     {
         [Theory]
         [InlineData("Lord of the Mine", 0, 0)]
-        [InlineData("Lord of the Mine", 0, 1)]
+        [InlineData("Lord of the Mine 1", 0, 1)]
         [InlineData("", 0, 0)]
         [InlineData("", 0, 1)]
         [InlineData("", 100, 1)]
         [InlineData("Lo", 1, 1)]
-        [InlineData("Lo", 0, 1)]
+        [InlineData("As", 0, 1)]
         [InlineData("Lo", 1, 0)]
-        [InlineData("Lord o", 0, 0)]
-        [InlineData("Lord o", 0, 1)]
-        [InlineData("Lord o", 100, 0)]
+        [InlineData("Lord a", 0, 0)]
+        [InlineData("Lord b", 0, 1)]
+        [InlineData("Lord c", 100, 0)]
         [InlineData(" ", 100, 1)]
         public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErros(
             string title,
@@ -46,7 +46,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
         {
             var model = new CreateBookModel()
             {
-                Title = "Lord of the Mine",
+                Title = "Lord of the Lotus",
                 PageCount = 400,
                 PublishDate = DateTime.Now.Date,
                 GenreId = 12
@@ -64,7 +64,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Create
         {
             var model = new CreateBookModel()
             {
-                Title = "Lord of the Mine",
+                Title = "Lord of the Gotus",
                 PageCount = 400,
                 PublishDate = DateTime.Now.AddYears(-5),
                 GenreId = 12

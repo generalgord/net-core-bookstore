@@ -24,14 +24,14 @@ namespace WebApi.UnitTests.Operations.AuthorOperations.Queries
             {
                 new Author()
                 {
-                    FirstName = "WhenCalled_Authors_ShouldBeReturn FirstName 1",
-                    LastName = "WhenCalled_Authors_ShouldBeReturn LastName 1",
+                    FirstName = "WhenCalled_Authors_ShouldBeReturn FirstName 11",
+                    LastName = "WhenCalled_Authors_ShouldBeReturn LastName 4",
                     DateOfBirth = new DateTime(1990, 10, 10),
                 },
                 new Author()
                 {
-                    FirstName = "WhenCalled_Authors_ShouldBeReturn FirstName 2",
-                    LastName = "WhenCalled_Authors_ShouldBeReturn LastName 2",
+                    FirstName = "WhenCalled_Authors_ShouldBeReturn FirstName 22",
+                    LastName = "WhenCalled_Authors_ShouldBeReturn LastName 3",
                     DateOfBirth = new DateTime(1990, 10, 10),
                 }
             };

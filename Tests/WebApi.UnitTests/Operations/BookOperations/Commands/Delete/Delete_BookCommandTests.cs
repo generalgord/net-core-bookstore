@@ -34,7 +34,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Delete
         {
             var book = new Book()
             {
-                Title = "Test Given Book Title 33",
+                Title = "WhenBookExistInDatabase_Book_ShouldBeDeleted 33",
                 PageCount = 350,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,
@@ -54,7 +54,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Delete
         {
             var book = new Book()
             {
-                Title = "Test Given Book Title 22",
+                Title = "WhenBookExistInDatabase_BookAuthors_ShouldBeDeleted 22",
                 PageCount = 350,
                 PublishDate = new DateTime(2000, 10, 10),
                 GenreId = 1,

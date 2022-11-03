@@ -20,16 +20,7 @@ namespace WebApi.UnitTests.Operations.AuthorOperations.Queries
         [Fact]
         public void WhenAuthorIdIsWrongGiven_AppException_ShouldBeReturn()
         {
-            var book = new Author()
-            {
-                FirstName = "WhenAuthorIdIsWrongGiven_AppException_ShouldBeReturn FirstName",
-                LastName = "WhenAuthorIdIsWrongGiven_AppException_ShouldBeReturn LastName",
-                DateOfBirth = new DateTime(1990, 10, 10),
-            };
-            _context.Authors.Add(book);
-            _context.SaveChanges();
-
-            var itemId = book.Id + 5;
+            var itemId = -1;
 
             QueryGetAuthorById query = new QueryGetAuthorById(_context, _mapper, itemId);
             FluentActions
@@ -43,21 +34,21 @@ namespace WebApi.UnitTests.Operations.AuthorOperations.Queries
         [Fact]
         public void WhenAuthorIdIsValidGiven_Author_ShouldBeReturn()
         {
-            var book = new Author()
+            var author = new Author()
             {
                 FirstName = "WhenAuthorIdIsWrongGiven_AppException_ShouldBeReturn FirstName",
                 LastName = "WhenAuthorIdIsWrongGiven_AppException_ShouldBeReturn LastName",
                 DateOfBirth = new DateTime(1990, 10, 10),
             };
-            _context.Authors.Add(book);
+            _context.Authors.Add(author);
             _context.SaveChanges();
 
-            QueryGetAuthorById query = new QueryGetAuthorById(_context, _mapper, book.Id);
+            QueryGetAuthorById query = new QueryGetAuthorById(_context, _mapper, author.Id);
             var result = FluentActions.Invoking(() => query.Handle()).Invoke();
 
             result.Should().NotBeNull();
-            result.Id.Should().Be(book.Id);
-            result.AuthorName.Should().Be($"{book.FirstName} {book.LastName}");
+            result.Id.Should().Be(author.Id);
+            result.AuthorName.Should().Be($"{author.FirstName} {author.LastName}");
         }
     }
 }

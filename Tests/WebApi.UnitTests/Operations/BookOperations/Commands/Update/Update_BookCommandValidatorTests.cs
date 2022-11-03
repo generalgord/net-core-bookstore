@@ -37,7 +37,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Update
             var itemId = 0;
             UpdateBookModel model = new UpdateBookModel()
             {
-                Title = "Lord of the Books",
+                Title = "Lord of the Minus",
                 PageCount = 120,
                 GenreId = 1,
                 PublishDate = DateTime.Now,
@@ -57,7 +57,7 @@ namespace WebApi.UnitTests.Operations.BookOperations.Commands.Update
             var itemId = 1;
             UpdateBookModel model = new UpdateBookModel()
             {
-                Title = "Lord of the Books",
+                Title = "Lord of the Silus",
                 PageCount = 120,
                 GenreId = 1,
                 PublishDate = DateTime.Now.AddYears(-20),
